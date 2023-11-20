@@ -1,0 +1,41 @@
+{
+  "Usuario": [
+    {
+      "nombre": "sofia",
+      "email": "sofia345@gmail.com",
+      "contraseña": "123456",
+      "id": 1
+    },
+    {
+      "nombre": "diego",
+      "email": "diego@gmail.com",
+      "contraseña": "1234567",
+      "id": 3
+    },
+    {
+      "email": "sofia345@gmail.com",
+      "contraseña": "123456",
+      "id": 4
+    },
+    {
+      "email": "sofia345@gmail.com",
+      "contraseña": "123456",
+      "id": 5
+    },
+    {
+      "email": "sofia345@gmail.com",
+      "contraseña": "123456",
+      "id": 6
+    },
+    {
+      "nombre": "yesika",
+      "email": "yesika@gmail.com",
+      "id": 7
+    },
+    {
+      "nombre": "yesika",
+      "email": "yesika@gmail.com",
+      "id": 8
+    }
+  ]
+}
