@@ -9,8 +9,8 @@ import APIInvoke from "../../utils/APIInvoke"
 const ProyectosAdmin = () => {
    const [dulces, setDulces] = useState([]);
    const cargarDulces = async() =>{
-    const response = await APIInvoke.invokeGET(`/Usuario/dulces`);
-    console.log(response.dulces)
+    const response = await APIInvoke.invokeGET(`/Dulces`);
+    console.log(response.dulces);
     setDulces(response.dulces);
 
    }
@@ -59,15 +59,17 @@ const ProyectosAdmin = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>
-                                           &nbsp;
-                                        </td>
-                                       
-                                    </tr>
-                                
+
+                                    {
+                                      /*ulces.map(
+                                        item =>
+                                        <tr>
+                                            <td> {item.Id}</td>
+                                            <td> {item.Nombre}</td>
+                                        </tr>
+                                      )  */
+                                    }
+                                    
                                 </tbody>
                             </table>
 

@@ -36,6 +36,47 @@
       "nombre": "yesika",
       "email": "yesika@gmail.com",
       "id": 8
+    },
+    {
+      "nombre": "sol",
+      "email": "sol12@gmail.com",
+      "id": 9
+    },
+    {
+      "nombre": "sol",
+      "email": "sol12@gmail.com",
+      "id": 10
+    },
+    {
+      "nombre": "sol",
+      "email": "sol12@gmail.com",
+      "id": 11
+    },
+    {
+      "nombre": "flor",
+      "email": "flot12@gmail.com",
+      "contraseña": "12345678",
+      "confirmar": "12345678",
+      "id": 12
+    },
+    {
+      "nombre": "flor",
+      "email": "flot12@gmail.com",
+      "contraseña": "12345678",
+      "confirmar": "12345678",
+      "id": 13
+    },
+    {
+      "nombre": "alex",
+      "email": "alex12@gmail.com",
+      "contraseña": "123456",
+      "id": 14
+    },
+    {
+      "nombre": "alex",
+      "email": "alex12@gmail.com",
+      "contraseña": "123456",
+      "id": 15
     }
   ]
 }

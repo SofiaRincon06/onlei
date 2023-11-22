@@ -26,6 +26,24 @@ const Login = () =>{
   }, [])
 
   const IniciarSesion = async () =>{
+    const verificarExistenciaUsuario = async (email) => {
+      try {
+          const response = await APIInvoke.invokeGET(
+              `/Usuario?email=${email}`
+          );
+          if (response && response.length > 0) {
+              return true; // El usuario ya existe
+          } else {
+              return false; // El usuario no existe
+          }
+
+      } catch (error) {
+          console.error(error);
+          return false; // Maneja el error si la solicitud falla 
+      }
+  };
+
+
     if(contraseña.length < 6){
       const msg = "La contraseña debe ser al menos de 6 caracteres";
       swal({
@@ -43,28 +61,26 @@ const Login = () =>{
         }
       });
     }else {
-        const data = {
-          email: usuario.email,
-          contraseña: usuario.contraseña
-        }
-        const response = await APIInvoke.invokePOST(`/Usuario`, data);
-        const mensaje = response.msg;
+      const UsuaExistente = await verificarExistenciaUsuario(email, contraseña);
+      const response = await APIInvoke.invokeGET(
+          `/Usuario?email=${email}&contraseña=${contraseña}`
+      );
 
-        if(mensaje === 'el usuario no existe' || mensaje === 'la contraseña es incorrecta'){
-          const msg = "No fue posible iniciar sesión verifica los datos ingresados";
-          swal({
-            title: 'Error',
-            text: msg,
-            icon: 'error',
-            buttons: {
-              confirm: {
-                text: 'Ok',
-                value: true,
-                visible: true,
-                className: 'btn btn-danger',
-                closeModal: true
+      if (!UsuaExistente) {
+          const msg = "No es posible iniciar sesión, verifique los datos";
+          new swal({
+              title: 'Error',
+              text: msg,
+              icon: 'error',
+              buttons: {
+                  confirm: {
+                      text: 'Ok',
+                      value: true,
+                      visible: true,
+                      className: 'btn btn-danger',
+                      closeModal: true
+                  }
               }
-            }
           });
         }else{
           //obtener el token de acceso jwt 

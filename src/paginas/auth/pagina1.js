@@ -32,10 +32,15 @@ const Pagina1 = () =>{
       <nav className="navbar container">
         <i className="fa-solid fa-bars" />
         <ul className="menu">
-          <li><Link to="#">Inicio Sesion</Link></li>
-          <li><Link to="#">Registrate</Link></li>
-          <li><Link to="#">Nosotros</Link></li>
-          <li><Link to="#">Productos</Link></li>
+        <Link to={"/login"} >
+                  Iniciar Sesión
+                </Link>
+                <Link to={"/crear-cuenta"} >
+                  Registrate
+                </Link>
+                <Link to={"/produc"} >
+                  Productos
+                </Link>
           <li><Link to="#">Contactanos</Link></li>
         </ul>
         <form className="search-form">
@@ -75,7 +80,7 @@ const Pagina1 = () =>{
         <i className="fa-solid fa-headset" />
         <div className="feature-content">
           <span>Servicio al cliente 24/7</span>
-          <p>LLámenos 24/7 al 123-456-7890</p>
+          <p>LLámenos 24/7 al 316-298-77-96</p>
         </div>
       </div>
     </section>
@@ -83,15 +88,15 @@ const Pagina1 = () =>{
       <h1 className="heading-1">Mejores Categorías</h1>
       <div className="container-categories">
         <div className="card-category category-moca">
-          <p>Café moca</p>
+          <p>Chocolates</p>
           <span>Ver más</span>
         </div>
         <div className="card-category category-expreso">
-          <p>Expreso Americano</p>
+          <p>Arequipes</p>
           <span>Ver más</span>
         </div>
         <div className="card-category category-capuchino">
-          <p>Capuchino</p>
+          <p>Típicos</p>
           <span>Ver más</span>
         </div>
       </div>
@@ -129,7 +134,7 @@ const Pagina1 = () =>{
               <i className="fa-solid fa-star" />
               <i className="fa-regular fa-star" />
             </div>
-            <h3>Cafe Irish</h3>
+            <h3>Dulce de Ajonjolí</h3>
             <span className="add-cart">
               <i className="fa-solid fa-basket-shopping" />
             </span>
@@ -139,7 +144,7 @@ const Pagina1 = () =>{
         {/* Producto 2 */}
         <div className="card-product">
           <div className="container-img">
-            <img src="img/cafe-ingles.jpg" alt="Cafe incafe-ingles.jpg" />
+            <img url alt="Cafe incafe-ingles.jpg" />
             <span className="discount">-22%</span>
             <div className="button-group">
               <span>
@@ -161,7 +166,7 @@ const Pagina1 = () =>{
               <i className="fa-regular fa-star" />
               <i className="fa-regular fa-star" />
             </div>
-            <h3>Cafe Inglés</h3>
+            <h3>Cocada</h3>
             <span className="add-cart">
               <i className="fa-solid fa-basket-shopping" />
             </span>
@@ -192,7 +197,7 @@ const Pagina1 = () =>{
               <i className="fa-solid fa-star" />
               <i className="fa-solid fa-star" />
             </div>
-            <h3>Cafe Australiano</h3>
+            <h3>Bocadillo</h3>
             <span className="add-cart">
               <i className="fa-solid fa-basket-shopping" />
             </span>
@@ -223,7 +228,7 @@ const Pagina1 = () =>{
               <i className="fa-solid fa-star" />
               <i className="fa-regular fa-star" />
             </div>
-            <h3>Cafe Helado</h3>
+            <h3>Merengón</h3>
             <span className="add-cart">
               <i className="fa-solid fa-basket-shopping" />
             </span>
@@ -263,11 +268,11 @@ const Pagina1 = () =>{
               <i className="fa-solid fa-star" />
               <i className="fa-regular fa-star" />
             </div>
-            <h3>Cafe Irish</h3>
+            <h3>Dulce de Aguardiente</h3>
             <span className="add-cart">
               <i className="fa-solid fa-basket-shopping" />
             </span>
-            <p className="price">$4.60 <span>$5.30</span></p>
+            <p className="price">$4.300 <span>$5.000</span></p>
           </div>
         </div>
         {/* Producto 2 */}
@@ -295,11 +300,11 @@ const Pagina1 = () =>{
               <i className="fa-regular fa-star" />
               <i className="fa-regular fa-star" />
             </div>
-            <h3>Cafe Inglés</h3>
+            <h3>Dulce de Feijoa</h3>
             <span className="add-cart">
               <i className="fa-solid fa-basket-shopping" />
             </span>
-            <p className="price">$5.70 <span>$7.30</span></p>
+            <p className="price">$7.800 <span>$10.000</span></p>
           </div>
         </div>
         {/*  */}
@@ -327,11 +332,11 @@ const Pagina1 = () =>{
               <i className="fa-solid fa-star" />
               <i className="fa-solid fa-star" />
             </div>
-            <h3>Cafe Viena</h3>
+            <h3>Dulce de Melcocha</h3>
             <span className="add-cart">
               <i className="fa-solid fa-basket-shopping" />
             </span>
-            <p className="price">$3.85 <span>$5.50</span></p>
+            <p className="price">$4.200 <span>$6.000</span></p>
           </div>
         </div>
         {/*  */}
@@ -358,11 +363,11 @@ const Pagina1 = () =>{
               <i className="fa-solid fa-star" />
               <i className="fa-regular fa-star" />
             </div>
-            <h3>Cafe Liqueurs</h3>
+            <h3>Dulce Gelatina de Pata</h3>
             <span className="add-cart">
               <i className="fa-solid fa-basket-shopping" />
             </span>
-            <p className="price">$5.60</p>
+            <p className="price">$4.000</p>
           </div>
         </div>
       </div>
@@ -383,14 +388,12 @@ const Pagina1 = () =>{
             </div>
           </div>
           <div className="content-blog">
-            <h3>Lorem, ipsum dolor sit</h3>
-            <span>29 Noviembre 2022</span>
+            <h3>Nuestros Eventos</h3>
+            <span>29 Julio 2023</span>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Iste, molestiae! Ratione et, dolore ipsum
-              quaerat iure illum reprehenderit non maxime amet dolor
-              voluptas facilis corporis, consequatur eius est sunt
-              suscipit?
+            Conoce un poco más sobre nuestros eventos que realizamos cada mes,
+              con nuestros usuarios, para conocer más de nuestras tiendas y productos.
+
             </p>
             <div className="btn-read-more">Leer más</div>
           </div>
@@ -408,14 +411,11 @@ const Pagina1 = () =>{
             </div>
           </div>
           <div className="content-blog">
-            <h3>Lorem, ipsum dolor sit</h3>
+            <h3>Nuestra Historia</h3>
             <span>29 Noviembre 2022</span>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Iste, molestiae! Ratione et, dolore ipsum
-              quaerat iure illum reprehenderit non maxime amet dolor
-              voluptas facilis corporis, consequatur eius est sunt
-              suscipit?
+            Podrás conocer un poco más sobre nosotros, de como poco a poco construimos esta 
+            empresa que permite que las empresas colombianas sean mas reconocidas. 
             </p>
             <div className="btn-read-more">Leer más</div>
           </div>
@@ -433,14 +433,12 @@ const Pagina1 = () =>{
             </div>
           </div>
           <div className="content-blog">
-            <h3>Lorem, ipsum dolor sit</h3>
-            <span>29 Noviembre 2022</span>
+            <h3>Una Colombia dulce</h3>
+            <span>30 Enero 2022</span>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Iste, molestiae! Ratione et, dolore ipsum
-              quaerat iure illum reprehenderit non maxime amet dolor
-              voluptas facilis corporis, consequatur eius est sunt
-              suscipit?
+            En este espacio podrás conocer un poco más de como se producen los dulces en Colombia, 
+            los diferentes tipos de dulces dependiendo nuestra región y mucho más. 
+
             </p>
             <div className="btn-read-more">Leer más</div>
           </div>
@@ -454,13 +452,9 @@ const Pagina1 = () =>{
         <div className="contact-info">
           <p className="title-footer">Información de Contacto</p>
           <ul>
-            <li>
-              Dirección: 71 Pennington Lane Vernon Rockville, CT
-              06066
-            </li>
-            <li>Teléfono: 123-456-7890</li>
-            <li>Fax: 55555300</li>
-            <li>EmaiL: baristas@support.com</li>
+            <li>Calle 131 #93-25 oficina 203</li>
+            <li>Teléfono: 316-298-77-96</li>
+            <li>EmaiL: dulMoc@soprte.com</li>
           </ul>
           <div className="social-icons">
             <span className="whatsapp"> <i className="fa-brands fa-whatsapp" /> </span>

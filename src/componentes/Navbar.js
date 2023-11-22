@@ -9,7 +9,7 @@ const Navbar = () => {
                     <Link className="nav-link" data-widget="pushmenu" to="#" role="button"><i className="fas fa-bars" /></Link>
                 </li>
                 <li className="nav-item d-none d-sm-inline-block">
-                    <Link to="../../index3.html" className="nav-link">Salir</Link>
+                    <Link to="/" className="nav-link">Salir</Link>
                 </li>
             </ul>
             <ul className="navbar-nav ml-auto">

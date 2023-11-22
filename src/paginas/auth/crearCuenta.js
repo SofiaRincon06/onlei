@@ -30,6 +30,22 @@ const CrearCuenta = () => {
   }, [])
 
   const crearCuenta = async () => {
+    const verificarExistenciaUsuario = async (nombre) => {
+      try {
+          const response = await APIInvoke.invokeGET(
+              `/Usuario?nombre=${nombre}`
+          );
+          if (response && response.length > 0) {
+              return true; // El usuario ya existe
+          } else {
+              return false; // El usuario no existe
+          }
+
+      } catch (error) {
+          console.error(error);
+          return false; // Maneja el error si la solicitud falla 
+      }
+  };
     if (contraseña !== confirmar) {
       const msg = "Las contraseñas son diferentes";
       swal({
@@ -64,15 +80,17 @@ const CrearCuenta = () => {
         }
       });
     } else {
+      const usuarioExiste = await verificarExistenciaUsuario(nombre);
       const data = {
         nombre: usuario.nombre,
         email: usuario.email,
-        contraseña: usuario.password
+        contraseña: usuario.contraseña,
+    
       }
       const response = await APIInvoke.invokePOST(`/Usuario`, data);
       const mensaje = response.msg;
 
-      if (mensaje === 'El usuario ya existe') {
+      if (usuarioExiste) {
         const msg = "El usuario ya existe.";
         swal({
           title: 'Error',
@@ -117,6 +135,7 @@ const CrearCuenta = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     crearCuenta();
+    
   }
 
 
@@ -208,7 +227,7 @@ const CrearCuenta = () => {
                 <button type='submit' className="btn btn-block btn-primary">
                   Crear Cuenta
                 </button>
-                <Link to={"/pagina1"} className="btn btn-block btn-danger">
+                <Link to={"/"} className="btn btn-block btn-danger">
                   Regresar al Login
                 </Link>
               </div>
