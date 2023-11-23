@@ -8,6 +8,7 @@ import CrearCuenta from './paginas/auth/crearCuenta';
 import Home from './paginas/home';
 import ProyectosAdmin from './paginas/dulces/ProyectosAdmin';
 import Productosdul from './paginas/dulces/productosdul';
+import CrearDulce from './paginas/dulces/CrearDulce';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Route path='/home' exact element={<Home/>}/>   
         <Route path='/proyectos-admin' exact element={<ProyectosAdmin/>}/>      
         <Route path='/produc'exact element={<Productosdul/>}/>
-             
+        <Route path='/crea-dul'exact element={<CrearDulce/>}/>  
       </Routes>
     </Router>
    </Fragment>

@@ -141,7 +141,7 @@ const CrearCuenta = () => {
 
   return (
 
-    <div className="hold-transition logi-page">
+    <div className="hold-transition logi-page" style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <div className="login-box">
         <div className="login-logo">
           <Link to={"#"}><b>Crea Tu</b>Cuenta</Link>

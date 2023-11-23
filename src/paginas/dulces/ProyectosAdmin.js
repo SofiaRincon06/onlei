@@ -17,7 +17,7 @@ const ProyectosAdmin = () => {
    useEffect(() =>{
         cargarDulces();
    },[])
-
+   
 
 
 
@@ -59,16 +59,25 @@ const ProyectosAdmin = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
+                                
 
                                     {
-                                      /*ulces.map(
-                                        item =>
-                                        <tr>
-                                            <td> {item.Id}</td>
-                                            <td> {item.Nombre}</td>
+                                    dulces.map(
+                                            item => 
+                                             <tr key={item.id}>
+                                            <td>{item.id}</td>
+                                             <td>{item.nombre}</td>
+                                            <td>{item.precio}</td>
+                                            <td>{item.categoria}</td>
+
+                                            <td>
+                                                <button className="btn btn-sm btn-primary" > Editar</button>
+                                                <button className="btn btn-sm btn-danger" > Borrar</button>
+                                            </td>
                                         </tr>
-                                      )  */
+                                    )
                                     }
+                        
                                     
                                 </tbody>
                             </table>

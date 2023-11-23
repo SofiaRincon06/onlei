@@ -103,7 +103,7 @@ const Login = () =>{
 
 
     return (
-        <div className="login-box">
+        <div className="login-box" style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
   <div className="login-logo">
     <Link to={"../../index2.html"}><b>Iniciar</b>Sesión</Link>
   </div>
