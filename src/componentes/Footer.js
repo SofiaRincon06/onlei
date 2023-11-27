@@ -8,7 +8,7 @@ const Footer = () => {
         <b>Version</b> 3.2.0
       </div>
       <strong>
-        ServiPlus © 2023 <Link to={"https://adminlte.io"}>Serviplus</Link>.
+        MochueloServi © 2023 <Link to={"https://adminlte.io"}>MocueloDul</Link>.
       </strong>{" "}
     </footer>
   );

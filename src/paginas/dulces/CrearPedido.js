@@ -72,6 +72,7 @@ const CrearPedido = () => {
         nombre: Pedido.nombre,
         apellidos: Pedido.apellidos,
         email: Pedido.email,
+        Telefono: Pedido.Telefono,
         direccion: Pedido.direccion,
         pago:Pedido.pago,
         precio:Pedido.precio,

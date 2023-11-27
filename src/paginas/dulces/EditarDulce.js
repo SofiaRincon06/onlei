@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from 'react-router-dom';
-import APIInvoke from '../../utils/APIInvoke';
-import Navbar from "../../componentes/Navbar";
-import SidebarContainer from "../../componentes/SidebarContainer";
-import ContentHeader from "../../componentes/ContentHeader";
-import Footer from "../../componentes/Footer";
-import swal from 'sweetalert';
-import axios from "axios";
-import show_alerta from "sweetalert";
 
+import { useNavigate, useParams } from "react-router-dom";
+import APIInvoke from "../../utils/APIInvoke";
+import { Link } from "react-router-dom";
+import swal from "sweetalert";
+import axios from "axios";
+import show_alerta from "sweetalert"
 
 const EditarDulce = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const url = `http://localhost:4000/Dulce/${ id }`
 
-  const url = `http://localhost:4000/Dulce/${id}`;
-
-  const [Dulce, setDulce] = useState({
+  const [Dulce, setDulce]= useState({
     referencia: '',
     marca: '',
     presentacion: '',
@@ -23,119 +20,204 @@ const EditarDulce = () => {
     tipo: '',
     cantidad:'',
     precio: '',
-    pesoNeto:''
+    pesoNeto:'',
+    categoria:'',
   });
+useEffect(() =>{
+        getDulce();
+},[]);
 
-  useEffect(() => {
-      getDulces();
-  }, []);
+const getDulce = async () =>{
+    try{
+        const response = await axios.get(url);
+        setDulce(response.data);
+    }catch (error){
+        console.error("Error al tener detalles del dulce", error);
+        show_alerta("Error", "Hubo al tener detalles del dulce")
+    }
+};
+const hanleInpuChange =(e) =>{
+    const {name, value} = e.target;
+    setDulce({
+        ...Dulce,
+        [name]: value,
+    });
+};
 
-  const getDulces = async () => {
-      try {
-          const response = await axios.get(url);
-          setDulce(response.data);
-      } catch (error) {
-          console.error("Error al obtener detalles del Dulce:", error);
-          show_alerta("Error", "Hubo un error al obtener los detalles del Dulce");
-      }
-  }
-
-  const handleInputChange = (e) => {
-      const { name, value } = e.target;
-      setDulce({
-          ...Dulce,
-          [name]: value,
-      });
-  };
-
-  const handleSubmit = async (e) => {
-      e.preventDefault();
-      try {
-          await axios.put(url, Dulce);
-          show_alerta("Éxito", "Detalles del Dulce actualizados correctamente");
-         
-      } catch (error) {
-          console.error("Error al actualizar detalles del Dulce:", error);
-          show_alerta("Error", "Hubo un error al actualizar los detalles del Dulce");
-      }
-
-}
+const hanleSubmit = async (e) =>{
+    e.preventDefault();
+    try{
+        const response = await axios.put (url, Dulce);
+        show_alerta("Exito", "Detalles del dulce actualizados correctamente");
+        navigate("/ver-du");
+    }catch (error){
+        console.error("Error al actualizar el dulce", error);
+        show_alerta("Error", "Hubo al tener actualizar del dulce")
+    }
+};
+  return (
 
 
-<div className="wrapper">
-<Navbar></Navbar>
-<SidebarContainer></SidebarContainer>
-<div class="content-wrapper">
-  <ContentHeader
-    titulo={"Listado de Tikets"}
-    breadCrumb1={"Inicio"}
-    breadCrumb2={"Tikets"}
-    ruta2={"/Home2"}
-  />
-
-  <section className="content">
-    <div className="card">
-      <div className="card-header">
-        <h3 className="card-title">Ver Tickets</h3>
-        <div className="card-tools">
-        </div>
-      </div>
-      <div className="hold-transition register-page">
-            <div className="register-box">
-                <div className="card">
-                    <div className="card-body register-card-body">
-                        <p className="login-box-msg">Registro de pacientes</p>
-                        <form onSubmit={handleSubmit}>
-                            <div className="input-group mb-3">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="contenido"
-                                    id="contenido"
-                                    name="contenido"
-                                    value={Dulce.contenido}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                                <div className="input-group-append">
-                                    <div className="input-group-text">
-                                        <span className="fa-solid fa-signature" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="input-group mb-3">
-                                <input
-                                    type="date"
-                                    className="form-control"
-                                    placeholder="fecha"
-                                    id="fecha"
-                                    name="fecha"
-                                    value={Dulce.fecha}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                                <div className="input-group-append">
-                                    <div className="input-group-text">
-                                        <span className="fas fa-lock" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="social-auth-links text-center">
-                                <button type="submit" className="btn btn-primary">
-                                    Guardar Cambios
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+     <div className="hold-transition logi-page" style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    <div className="wrapper">
+      <div className="content-wrapper">
+        <section className="content">
+          <div className="card-header">
+            <h3 className="card-title">
+              <Link
+                to="/ver-du"
+                type="button"
+                className="btn btn-block btn-primary btn-sm"
+              >
+                Volver a la Lista
+              </Link>
+            </h3>
+          </div>
+          <div className="card-body">
+            <form onSubmit={hanleSubmit}>
+              <div className="card-body">
+              <div className="form-group">
+                  <label htmlFor="referencia">Referencia:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="referencia"
+                    name="referencia"
+                    placeholder="Ingrese la marca del dulce"
+                    value={Dulce.referencia}
+                    onChange={hanleInpuChange}
+                    required
+                  />
                 </div>
-            </div>
-        </div>
-    </div>
-  </section>
-</div>
-<Footer></Footer>
-</div>
+                <div className="form-group">
+                  <label htmlFor="marca">Marca:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="marca"
+                    name="marca"
+                    placeholder="Ingrese la marca del dulce"
+                    value={Dulce.marca}
+                    onChange={hanleInpuChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="presentacion">Presentacion:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="presentacion"
+                    name="presetacion"
+                    placeholder="Ingrese la presentacion del producto"
+                    value={Dulce.presentacion}
+                    onChange={hanleInpuChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="sabor">Sabor:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="sabor"
+                    name="sabor"
+                    placeholder="Ingrese e sabor del dulce"
+                    value={Dulce.sabor}
+                    onChange={hanleInpuChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="tipo">Tipo:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="tipo"
+                    name="tipo"
+                    placeholder="Ingrese el tipo del dulce"
+                    value={Dulce.tipo}
+                    onChange={hanleInpuChange}
+                    required
+                  />
+                </div>
 
-}
+                <div className="form-group">
+                  <label htmlFor="cantidad">Cantidad:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="cantidad"
+                    name="cantidad"
+                    placeholder="Ingrese la Cantidad de dulces"
+                    value={Dulce.cantidad}
+                    onChange={hanleInpuChange}
+                    required
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="precio">Precio:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="precio"
+                    name="precio"
+                    placeholder="Ingrese el precio del dulce"
+                    value={Dulce.precio}
+                    onChange={hanleInpuChange}
+                    required
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="pesoNeto">pesoNeto:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="pesoNeto"
+                    name="pesoNeto"
+                    placeholder="Ingrese el PesoNeto del dulc"
+                    value={Dulce.pesoNeto}
+                    onChange={hanleInpuChange}
+                    required
+                  />
+                </div>
+
+                <div className="input-group mb-3">
+                    <label htmlFor="categoria">Seleccione la categoria:</label>
+                        <select className="form-control"
+                         id="categoria"
+                          name="categoria" 
+                          value={Dulce.categoria} 
+                          onChange={hanleInpuChange} 
+                          required
+                          >
+                            <option value="chocolates">Chocolates</option>
+                            <option value="arequipes">Arequipes</option>
+                            <option value="tipicos">Típicos</option>
+                        </select>
+
+                        <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fa-solid fa-scale-balanced" />
+                  </div>
+                  </div>
+                </div>
+
+              </div>
+              <div className="card-footer">
+                <button type="submit" className="btn btn-primary">
+                  Actualizar
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+    </div>
+  );
+};
 
 export default EditarDulce;

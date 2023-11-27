@@ -9,7 +9,7 @@ const Menu = () =>{
     
  
     <li className="nav-item">
-      <Link to={"/home"} className="nav-link">
+      <Link to={"/homeC"} className="nav-link">
         <i className="nav-icon fas fa-th" />
         <p>
           Inicio
@@ -17,10 +17,10 @@ const Menu = () =>{
       </Link>
     </li>
     <li className="nav-item">
-      <Link to={"/ver-du"} className="nav-link">
+      <Link to={"/ver-pe"} className="nav-link">
         <i className="nav-icon fas fa-edit" />
         <p>
-          Dulces
+          Pedidos
         </p>
       </Link>
     </li>

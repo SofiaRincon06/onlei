@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
   import { Link, useNavigate } from "react-router-dom";
   import APIInvoke from "../../utils/APIInvoke";
   import swal from 'sweetalert';
+  import "../../estilos/vs.css";
 
   const Login = () => {
     const navigate = useNavigate();
@@ -51,7 +52,7 @@ import React, { useState, useEffect } from "react";
           mostrarError("No fue posible iniciar sesión, verifique los datos ingresados.");
         } else {
           mostrarExito("Bienvenid@");
-
+          localStorage.setItem("email", email)
           const { RolUsuario } = usuarioEncontrado;
           
           if (RolUsuario === "Rol1") {

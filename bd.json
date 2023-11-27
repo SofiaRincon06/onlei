@@ -20,52 +20,37 @@
       "contraseña": "123456",
       "RolUsuario": "Rol1",
       "id": 4
+    },
+    {
+      "nombre": "Fabian",
+      "email": "fabi@gmail.com",
+      "contraseña": "1234567",
+      "RolUsuario": "Rol1",
+      "id": 5
     }
   ],
   "Dulce": [
     {
-      "referencia": "1223",
-      "marca": "mochuelo",
-      "presentacion": "paquete",
-      "tipo": "dulce",
-      "id": 2
-    },
-    {
-      "referencia": "23",
-      "marca": "ddddd",
-      "presentacion": "ggggggg",
-      "tipo": "gggg",
-      "id": 3
-    },
-    {
-      "referencia": "holaa",
-      "marca": "colombiana",
-      "presentacion": "paquete",
-      "tipo": "gaga",
+      "referencia": "Chocolatina",
+      "marca": "jet",
+      "presentacion": "barra",
+      "sabor": "dulce",
+      "tipo": "chocolate",
       "cantidad": "12",
-      "precio": "1000",
-      "pesoNeto": "74",
-      "id": 4
-    },
-    {
-      "referencia": "qwsaesdr",
-      "marca": "qawses4rdt",
-      "presentacion": "aqswzedrx5ty",
-      "sabor": "wdesrftyg",
-      "tipo": "wsaedrxtyv",
-      "cantidad": "4523",
-      "precio": "54532",
-      "pesoNeto": "563",
-      "id": 5
+      "precio": "45000",
+      "pesoNeto": "12",
+      "categoria": "",
+      "id": 1
     }
   ],
   "Pedido": [
     {
-      "nombre": "Samuel",
-      "apellidos": "Perez",
-      "email": "same@gmail.com",
-      "direccion": "calle 131 #93-24",
-      "pago": "efectivo",
+      "nombre": "Flor",
+      "apellidos": "Camacho",
+      "email": "Florli@gmail.com",
+      "Telefono": "3212264201",
+      "direccion": "Calle 131#89-87",
+      "pago": "Tarjeta",
       "id": 1
     }
   ],

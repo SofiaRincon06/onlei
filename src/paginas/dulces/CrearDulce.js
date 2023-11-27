@@ -17,11 +17,12 @@ const CrearDulce = () => {
         tipo: '',
         cantidad:'',
         precio: '',
-        pesoNeto:''
+        pesoNeto:'',
+        categoria:""
   
       })
   
-      const{referencia,marca,presentacion,sabor,tipo,cantidad,precio,pesoNeto}=Dulce
+      const{referencia,marca,presentacion,sabor,tipo,cantidad,precio,pesoNeto, categoria}=Dulce
   
       const onChange=(e)=>{
           setDulce({
@@ -39,7 +40,8 @@ const CrearDulce = () => {
             tipo: Dulce.tipo,
             cantidad:Dulce.cantidad,
             precio: Dulce.precio,
-            pesoNeto:Dulce.pesoNeto
+            pesoNeto:Dulce.pesoNeto,
+            categoria:Dulce.categoria
           }
   
   
@@ -87,7 +89,8 @@ const CrearDulce = () => {
                 tipo: '',
                 cantidad:'',
                 precio: '',
-                pesoNeto:''
+                pesoNeto:'',
+                categoria:''
               })
             
           }
@@ -245,8 +248,36 @@ const CrearDulce = () => {
                   <div className="input-group-text">
                     <span className="fa-solid fa-scale-balanced" />
                   </div>
+                  </div>
+                  </div>
+
+                  <div className="input-group mb-3">
+                    <label htmlFor="categoria">Seleccione la categoria:</label>
+                        <select className="form-control"
+                         id="categoria"
+                          name="categoria" 
+                          value={categoria} 
+                          onChange={onChange} 
+                          required
+                          >
+                            <option value="chocolates">Chocolates</option>
+                            <option value="arequipes">Arequipes</option>
+                            <option value="tipicos">Típicos</option>
+                        </select>
+
+                        <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fa-solid fa-scale-balanced" />
+                  </div>
+                  </div>
                 </div>
-              </div>
+                
+              
+
+
+
+
+              
 
 
               <div className="social-auth-links text-center mb-3">
@@ -254,8 +285,8 @@ const CrearDulce = () => {
                 <button type='submit' className="btn btn-block btn-primary">
                   Crear Dulce
                 </button>
-                <Link to={"/"} className="btn btn-block btn-danger">
-                  Regresar al Login
+                <Link to={"/ver-du"} className="btn btn-block btn-danger">
+                  Regresar a Lisar
                 </Link>
               </div>
 
