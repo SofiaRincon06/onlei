@@ -8,7 +8,14 @@ import CrearCuenta from './paginas/auth/crearCuenta';
 import Home from './paginas/home';
 import ProyectosAdmin from './paginas/dulces/ProyectosAdmin';
 import Productosdul from './paginas/dulces/productosdul';
+import HomeC from "./paginas/homeC";
 import CrearDulce from './paginas/dulces/CrearDulce';
+import EditarDulce from './paginas/dulces/EditarDulce';
+import Chocos from './paginas/dulces/Chocos';
+import Are from './paginas/dulces/Are';
+import Tipi from './paginas/dulces/Tipi';
+import CrearPedido from './paginas/dulces/CrearPedido';
+import ListarDulce from './paginas/dulces/ListarDulce';
 
 function App() {
   return (
@@ -18,10 +25,19 @@ function App() {
         <Route path="/" exact element={<Pagina1/>}/>
         <Route path="/login" exact element ={<Login/>}/>
         <Route path='/crear-cuenta' exact element={<CrearCuenta/>}/>
-        <Route path='/home' exact element={<Home/>}/>   
+        <Route path='/home' exact element={<Home/>}/>  
+        <Route path='/homeC' exact element={<HomeC/>}/>  
         <Route path='/proyectos-admin' exact element={<ProyectosAdmin/>}/>      
-        <Route path='/produc'exact element={<Productosdul/>}/>
-        <Route path='/crea-dul'exact element={<CrearDulce/>}/>  
+        <Route path='/produc'exact element={<Productosdul/>}/> 
+        <Route path='/crearDulce'exact element={<CrearDulce/>}/> 
+        <Route path='/editarDulce'exact element={<EditarDulce />}/>
+        <Route path='/choco'exact element={<Chocos />}/>
+        <Route path='/are'exact element={<Are />}/>
+        <Route path='/tip' exact element={<Tipi/>}/>
+        <Route path='/crea-ped' exact element={<CrearPedido/>}/>
+        <Route path='/ver-du' exact element={<ListarDulce/>}/>
+
+
       </Routes>
     </Router>
    </Fragment>

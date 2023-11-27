@@ -28,7 +28,7 @@ const Home = () =>{
         <div className="small-box bg-info">
     <div className="inner">
       <h3>Dulces</h3>
-      <h1>Administrador</h1>
+      <h1>Cliente</h1>
       <p>&nbsp;</p>
     </div>
     <div className="icon">

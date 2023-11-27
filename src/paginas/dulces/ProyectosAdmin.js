@@ -7,15 +7,15 @@ import Footer from "../../componentes/Footer";
 import APIInvoke from "../../utils/APIInvoke" 
 
 const ProyectosAdmin = () => {
-   const [dulces, setDulces] = useState([]);
-   const cargarDulces = async() =>{
-    const response = await APIInvoke.invokeGET(`/Dulces`);
-    console.log(response.dulces);
-    setDulces(response.dulces);
+   const [Dulce, setDulce] = useState([]);
+   const cargarDulce = async() =>{
+    const response = await APIInvoke.invokeGET(`/Dulce`);
+    console.log(response.Dulce);
+    setDulce(response.Dulce);
 
    }
    useEffect(() =>{
-        cargarDulces();
+        cargarDulce();
    },[])
    
 
@@ -23,74 +23,72 @@ const ProyectosAdmin = () => {
 
 
     return (
-        <div className="wrapper">
-            <Navbar></Navbar>
-            <SidebarContainer></SidebarContainer>
-            <div className="content-wrapper">
-                <ContentHeader
-                    titulo={"Listado de Dulces"}
-                    breadCrumb1={"Inicio"}
-                    breadCrumb2={"Dulces"}
-                    ruta1={"/home"}
-                />
+      <div className="wrapper">
+        <Navbar></Navbar>
+        <SidebarContainer></SidebarContainer>
+        <div className="content-wrapper">
+          <ContentHeader
+            titulo={"Listado de Dulces"}
+            breadCrumb1={"Inicio"}
+            breadCrumb2={"Dulces"}
+            ruta1={"/home"}
+          />
 
-                <section className="content">
-                    <div className="card">
-                        <div className="card-header">
-                            <h3 className="card-title">Title</h3>
-                            <div className="card-tools">
-                                <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i className="fas fa-minus" />
-                                </button>
-                                <button type="button" className="btn btn-tool" data-card-widget="remove" title="Remove">
-                                    <i className="fas fa-times" />
-                                </button>
-                            </div>
-                        </div>
-                        <div className="card-body">
-                            <table className="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th style={{ width: '10%'}}>Id</th>
-                                        <th style={{ width: '35%'}}>Nombre</th>
-                                        <th style={{ width: '35%'}}>Categoria</th>
-                                        <th style={{ width: '20%'}}>Precio</th>
-                                       
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                
+          <section className="content">
+            <div className="card">
+              <div className="card-header">
+                <h3 className="card-title">Title</h3>
+                <div className="card-tools">
+                  <button
+                    type="button"
+                    className="btn btn-tool"
+                    data-card-widget="collapse"
+                    title="Collapse"
+                  >
+                    <i className="fas fa-minus" />
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-tool"
+                    data-card-widget="remove"
+                    title="Remove"
+                  >
+                    <i className="fas fa-times" />
+                  </button>
+                </div>
+              </div>
+              <div className="card-body">
+                <table className="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th style={{ width: "10%" }}>Id</th>
+                      <th style={{ width: "35%" }}>Nombre</th>
+                      <th style={{ width: "35%" }}>Categoria</th>
+                      <th style={{ width: "20%" }}>Precio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  
 
-                                    {
-                                    dulces.map(
-                                            item => 
-                                             <tr key={item.id}>
-                                            <td>{item.id}</td>
-                                             <td>{item.nombre}</td>
-                                            <td>{item.precio}</td>
-                                            <td>{item.categoria}</td>
-
-                                            <td>
-                                                <button className="btn btn-sm btn-primary" > Editar</button>
-                                                <button className="btn btn-sm btn-danger" > Borrar</button>
-                                            </td>
-                                        </tr>
-                                    )
-                                    }
-                        
-                                    
-                                </tbody>
-                            </table>
-
-                        </div>
-
-                    </div>
-
-                </section>
+                        <td>
+                          <button className="btn btn-sm btn-primary">
+                            {" "}
+                            Editar
+                          </button>
+                          <button className="btn btn-sm btn-danger">
+                            {" "}
+                            Borrar
+                          </button>
+                        </td>
+                
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <Footer></Footer>
+          </section>
         </div>
-
+        <Footer></Footer>
+      </div>
     );
 }
 

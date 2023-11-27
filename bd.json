@@ -4,82 +4,75 @@
       "nombre": "sofia",
       "email": "sofia345@gmail.com",
       "contraseña": "123456",
+      "RolUsuario": "Rol1",
       "id": 1
     },
     {
       "nombre": "diego",
       "email": "diego@gmail.com",
       "contraseña": "1234567",
+      "RolUsuario": "Rol2",
       "id": 3
     },
     {
-      "email": "sofia345@gmail.com",
+      "nombre": "kevin",
+      "email": "kevin@gmail.com",
       "contraseña": "123456",
+      "RolUsuario": "Rol1",
+      "id": 4
+    }
+  ],
+  "Dulce": [
+    {
+      "referencia": "1223",
+      "marca": "mochuelo",
+      "presentacion": "paquete",
+      "tipo": "dulce",
+      "id": 2
+    },
+    {
+      "referencia": "23",
+      "marca": "ddddd",
+      "presentacion": "ggggggg",
+      "tipo": "gggg",
+      "id": 3
+    },
+    {
+      "referencia": "holaa",
+      "marca": "colombiana",
+      "presentacion": "paquete",
+      "tipo": "gaga",
+      "cantidad": "12",
+      "precio": "1000",
+      "pesoNeto": "74",
       "id": 4
     },
     {
-      "email": "sofia345@gmail.com",
-      "contraseña": "123456",
+      "referencia": "qwsaesdr",
+      "marca": "qawses4rdt",
+      "presentacion": "aqswzedrx5ty",
+      "sabor": "wdesrftyg",
+      "tipo": "wsaedrxtyv",
+      "cantidad": "4523",
+      "precio": "54532",
+      "pesoNeto": "563",
       "id": 5
-    },
-    {
-      "email": "sofia345@gmail.com",
-      "contraseña": "123456",
-      "id": 6
-    },
-    {
-      "nombre": "yesika",
-      "email": "yesika@gmail.com",
-      "id": 7
-    },
-    {
-      "nombre": "yesika",
-      "email": "yesika@gmail.com",
-      "id": 8
-    },
-    {
-      "nombre": "sol",
-      "email": "sol12@gmail.com",
-      "id": 9
-    },
-    {
-      "nombre": "sol",
-      "email": "sol12@gmail.com",
-      "id": 10
-    },
-    {
-      "nombre": "sol",
-      "email": "sol12@gmail.com",
-      "id": 11
-    },
-    {
-      "nombre": "flor",
-      "email": "flot12@gmail.com",
-      "contraseña": "12345678",
-      "confirmar": "12345678",
-      "id": 12
-    },
-    {
-      "nombre": "flor",
-      "email": "flot12@gmail.com",
-      "contraseña": "12345678",
-      "confirmar": "12345678",
-      "id": 13
-    },
-    {
-      "nombre": "alex",
-      "email": "alex12@gmail.com",
-      "contraseña": "123456",
-      "id": 14
-    },
-    {
-      "nombre": "alex",
-      "email": "alex12@gmail.com",
-      "contraseña": "123456",
-      "id": 15
     }
   ],
-  "Dulce":[
-    
+  "Pedido": [
+    {
+      "nombre": "Samuel",
+      "apellidos": "Perez",
+      "email": "same@gmail.com",
+      "direccion": "calle 131 #93-24",
+      "pago": "efectivo",
+      "id": 1
+    }
+  ],
+  "RolUsuario": [
+    {
+      "Rol1": "Administrador",
+      "Rol2": "Cliente"
+    }
   ]
 }

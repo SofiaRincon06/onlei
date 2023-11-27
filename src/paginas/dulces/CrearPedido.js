@@ -5,23 +5,25 @@ import swal from 'sweetalert';
 
 
 
-const CrearCuenta = () => {
+const CrearPedido = () => {
 
-  const [Usuario, setUsuario] = useState({
+  const [Pedido, setPedido] = useState({
     nombre: '',
+    apellidos: '',
     email: '',
-    contraseña: '',
-    confirmar: '',
-    RolUsuario: 'Rol1'
+    Telefono: '',
+    direccion: '',
+    pago:''
+
   });
 
-  //extraemos la informacion al elemento Usuario
-  const { nombre, email, contraseña, confirmar, RolUsuario } = Usuario;
+  //extraemos la informacion al elemento Pedido
+  const { nombre, apellidos, email, Telefono, direccion, pago } = Pedido;
 
 
   const onChange = (e) => {
-    setUsuario({
-      ...Usuario,
+    setPedido({
+      ...Pedido,
       [e.target.name]: e.target.value
     })
 
@@ -30,16 +32,16 @@ const CrearCuenta = () => {
     document.getElementById("nombre").focus();
   }, [])
 
-  const crearCuenta = async () => {
-    const verificarExistenciaUsuario = async (nombre) => {
+  const CrearPedido = async () => {
+    const verificarExistenciaPedido = async (nombre) => {
       try {
           const response = await APIInvoke.invokeGET(
-              `/Usuario?nombre=${nombre}`
+              `/Pedido?nombre=${nombre}`
           );
           if (response && response.length > 0) {
-              return true; // El usuario ya existe
+              return true; // El Pedido ya existe
           } else {
-              return false; // El usuario no existe
+              return false; // El Pedido no existe
           }
 
       } catch (error) {
@@ -47,25 +49,9 @@ const CrearCuenta = () => {
           return false; // Maneja el error si la solicitud falla 
       }
   };
-    if (contraseña !== confirmar) {
-      const msg = "Las contraseñas son diferentes";
-      swal({
-        title: 'Error',
-        text: msg,
-        icon: 'error',
-        buttons: {
-          confirm: {
-            text: 'Ok',
-            value: true,
-            visible: true,
-            className: 'btn btn-danger',
-            closeModal: true
-          }
-        }
-      });
-
-    } else if (contraseña.length < 6) {
-      const msg = "La contraseña debe ser  minimo de 6 caracteres";
+   
+     if (email.length < 6) {
+      const msg = "La email debe ser  minimo de 6 caracteres";
       swal({
         title: 'Error',
         text: msg,
@@ -81,19 +67,22 @@ const CrearCuenta = () => {
         }
       });
     } else {
-      const usuarioExiste = await verificarExistenciaUsuario(nombre);
+      const PedidoExiste = await verificarExistenciaPedido(nombre);
       const data = {
-        nombre: Usuario.nombre,
-        email: Usuario.email,
-        contraseña: Usuario.contraseña,
-        RolUsuario: Usuario.RolUsuario
+        nombre: Pedido.nombre,
+        apellidos: Pedido.apellidos,
+        email: Pedido.email,
+        direccion: Pedido.direccion,
+        pago:Pedido.pago,
+        precio:Pedido.precio,
+        pesoNeto:Pedido.pesoNeto
     
       }
-      const response = await APIInvoke.invokePOST(`/Usuario`, data);
+      const response = await APIInvoke.invokePOST(`/Pedido`, data);
       const mensaje = response.msg;
 
-      if (usuarioExiste) {
-        const msg = "El usuario ya existe.";
+      if (PedidoExiste) {
+        const msg = "El Pedido ya existe.";
         swal({
           title: 'Error',
           text: msg,
@@ -109,7 +98,7 @@ const CrearCuenta = () => {
           }
         });
       } else {
-        const msg = "El usuario se creo correctamente.";
+        const msg = "El Pedido se creo correctamente.";
         swal({
           title: 'Correcto',
           text: msg,
@@ -124,20 +113,22 @@ const CrearCuenta = () => {
             }
           }
         });
-        setUsuario({
-          nombre: '',
-          email: '',
-          contraseña: '',
-          confirmar: '',
-          RolUsuario: 'Rol1'
-        })
+          setPedido({
+            nombre: '',
+            apellidos: '',
+            email: '',
+            Telefono: '',
+            direccion: '',
+            pago:'',
+    
+          })
       }
     }
   }
 
   const onSubmit = (e) => {
     e.preventDefault();
-    crearCuenta();
+    CrearPedido();
     
   }
 
@@ -147,19 +138,19 @@ const CrearCuenta = () => {
     <div className="hold-transition logi-page" style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <div className="login-box">
         <div className="login-logo">
-          <Link to={"#"}><b>Crea Tu</b>Cuenta</Link>
+          <Link to={"#"}><b>Crea Tu</b>Pedido</Link>
         </div>
 
         <div className="card">
           <div className="card-body login-card-body">
-            <p className="login-box-msg">Ingresa los datos de usuario</p>
+            <p className="login-box-msg">Ingresa los datos del Cliente</p>
 
             <form onSubmit={onSubmit}>
 
               <div className="input-group mb-3">
                 <input type="text"
                   className="form-control"
-                  placeholder="Nombre"
+                  placeholder="Nombres"
                   id="nombre"
                   name="nombre"
                   value={nombre}
@@ -174,7 +165,24 @@ const CrearCuenta = () => {
               </div>
 
               <div className="input-group mb-3">
-                <input type="email"
+                <input type="text"
+                  className="form-control"
+                  placeholder="Apellidos"
+                  id="apellidos"
+                  name="apellidos"
+                  value={apellidos}
+                  onChange={onChange}
+                  required
+                />
+                <div className="input-group-append">
+                <div className="input-group-text">
+                    <span className="fa-solid fa-user" />
+                  </div>
+                  
+                </div>
+              </div>
+              <div className="input-group mb-3">
+                <input type="text"
                   className="form-control"
                   placeholder="Email"
                   id="email"
@@ -184,53 +192,73 @@ const CrearCuenta = () => {
                   required
                 />
                 <div className="input-group-append">
-                  <div className="input-group-text">
+
+                <div className="input-group-text">
                     <span className="fas fa-envelope" />
                   </div>
+                
                 </div>
               </div>
+
               <div className="input-group mb-3">
-                <input type="password"
+                <input type="number"
                   className="form-control"
-                  placeholder="Contraseña"
-                  id="contraseña"
-                  name="contraseña"
-                  value={contraseña}
+                  placeholder="Teléfono"
+                  id="Telefono"
+                  name="Telefono"
+                  value={Telefono}
                   onChange={onChange}
                   required
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
-                    <span className="fas fa-lock" />
+                    <span  class="fa-solid fa-phone" />
                   </div>
                 </div>
-              </div>
 
+              </div>
               <div className="input-group mb-3">
-                <input type="password"
+                <input type="text"
                   className="form-control"
-                  placeholder="Confirmar Contraseña"
-                  id="confirmar"
-                  name="confirmar"
-                  value={confirmar}
+                  placeholder="Dirección"
+                  id="direccion"
+                  name="direccion"
+                  value={direccion}
                   onChange={onChange}
                   required
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
-                    <span className="fas fa-lock" />
+                    <span  class="fa-solid fa-house" />
                   </div>
                 </div>
               </div>
 
+              <div className="input-group mb-3">
+                <input type="text"
+                  className="form-control"
+                  placeholder="Medio de Pago"
+                  id="pago"
+                  name="pago"
+                  value={pago}
+                  onChange={onChange}
+                  required
+                />
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span  class="fa-solid fa-credit-card"/>
+                  </div>
+                </div>
+              </div>
 
+          
 
               <div className="social-auth-links text-center mb-3">
 
                 <button type='submit' className="btn btn-block btn-primary">
-                  Crear Cuenta
+                  Realizar Compra
                 </button>
-                <Link to={"/login"} className="btn btn-block btn-danger">
+                <Link to={"/"} className="btn btn-block btn-danger">
                   Regresar al Login
                 </Link>
               </div>
@@ -244,4 +272,5 @@ const CrearCuenta = () => {
 
   );
 }
-export default CrearCuenta;
+
+export default CrearPedido;
