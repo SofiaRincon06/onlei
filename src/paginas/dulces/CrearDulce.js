@@ -133,6 +133,8 @@ const CrearDulce = () => {
                 </div>
               </div>
 
+
+              
               <div className="input-group mb-3">
                 <input type="text"
                   className="form-control"
@@ -251,26 +253,24 @@ const CrearDulce = () => {
                   </div>
                   </div>
 
-                  <div className="input-group mb-3">
-                    <label htmlFor="categoria">Seleccione la categoria:</label>
-                        <select className="form-control"
-                         id="categoria"
-                          name="categoria" 
-                          value={categoria} 
-                          onChange={onChange} 
-                          required
-                          >
-                            <option value="chocolates">Chocolates</option>
-                            <option value="arequipes">Arequipes</option>
-                            <option value="tipicos">Típicos</option>
-                        </select>
-
-                        <div className="input-group-append">
-                  <div className="input-group-text">
-                    <span className="fa-solid fa-scale-balanced" />
-                  </div>
-                  </div>
-                </div>
+              <div className="input-group mb-3">
+                                        <select className="form-control"
+                                            name="categoria"
+                                            value={categoria}
+                                            onChange={onChange}
+                                        >
+                                            <option value="">Seleccione su tipo de categoria</option>
+              
+                                            <option value="Chocos">Chocolates</option>
+                                            <option value="Are">Arequipes</option>
+                                            <option value="Tipi">Tipicos</option>
+                                        </select>
+                                        <div className="input-group-append">
+                                            <div className="input-group-text">
+                                                <span className="fa-regular fa-address-card" />
+                                            </div>
+                                        </div>
+                                    </div>
                 
               
 

@@ -12,7 +12,7 @@ const CrearCuenta = () => {
     email: '',
     contraseña: '',
     confirmar: '',
-    RolUsuario: 'Rol1'
+    RolUsuario: 'Rol2'
   });
 
   //extraemos la informacion al elemento Usuario
@@ -129,7 +129,7 @@ const CrearCuenta = () => {
           email: '',
           contraseña: '',
           confirmar: '',
-          RolUsuario: 'Rol1'
+          RolUsuario: 'Rol2'
         })
       }
     }

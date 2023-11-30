@@ -1,32 +1,20 @@
 {
-  "Usuario": [
+  "Admin": [
     {
       "nombre": "sofia",
       "email": "sofia345@gmail.com",
       "contraseña": "123456",
       "RolUsuario": "Rol1",
       "id": 1
-    },
+    }
+  ],
+  "Usuario": [
     {
-      "nombre": "diego",
-      "email": "diego@gmail.com",
+      "nombre": "mochu",
+      "email": "mochu12@gmail.com",
       "contraseña": "1234567",
       "RolUsuario": "Rol2",
-      "id": 3
-    },
-    {
-      "nombre": "kevin",
-      "email": "kevin@gmail.com",
-      "contraseña": "123456",
-      "RolUsuario": "Rol1",
-      "id": 4
-    },
-    {
-      "nombre": "Fabian",
-      "email": "fabi@gmail.com",
-      "contraseña": "1234567",
-      "RolUsuario": "Rol1",
-      "id": 5
+      "id": 2
     }
   ],
   "Dulce": [

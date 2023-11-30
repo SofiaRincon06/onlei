@@ -6,7 +6,6 @@ import Login from './paginas/auth/login';
 import Pagina1 from './paginas/auth/pagina1';
 import CrearCuenta from './paginas/auth/crearCuenta';
 import Home from './paginas/home';
-
 import Productosdul from './paginas/dulces/productosdul';
 import HomeC from "./paginas/homeC";
 import CrearDulce from './paginas/dulces/CrearDulce';
@@ -17,6 +16,9 @@ import Tipi from './paginas/dulces/Tipi';
 import CrearPedido from './paginas/dulces/CrearPedido';
 import ListarDulce from './paginas/dulces/ListarDulce';
 import ListarPedi from './paginas/dulces/ListarPedi';
+import ListPeA from './paginas/dulces/ListPeA';
+import Arch from './paginas/auth/Arch';
+import Carrito from './paginas/auth/Carrito'
 
 function App() {
   return (
@@ -37,9 +39,9 @@ function App() {
         <Route path='/crea-ped' exact element={<CrearPedido/>}/>
         <Route path='/ver-du' exact element={<ListarDulce/>}/>
         <Route path='/ver-pe' exact element={<ListarPedi/>}/>
-       
-     
-
+        <Route path='/verPe-Ad' exact element={<ListPeA/>}/>
+        <Route path='/vo' exact element={<Arch/>}/>
+        <Route path='/ca' exact element={<Carrito/>}/>
 
       </Routes>
     </Router>

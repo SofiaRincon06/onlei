@@ -23,8 +23,21 @@ const Menu = () =>{
           Dulces
         </p>
       </Link>
+
+      
     </li>
 
+    <li className="nav-item">
+      <Link to={"/verPe-Ad"} className="nav-link">
+        <i className="nav-icon fas fa-edit" />
+        <p>
+          Pedidos del Cliente
+        </p>
+      </Link>
+
+      
+    </li>
+      
    
     
   </ul>

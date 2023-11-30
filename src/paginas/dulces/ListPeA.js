@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../componentes/Navbar";
-import Sideabar2 from "../../componentes/Sidebar2";
+import SidebarContainer from "../../componentes/SidebarContainer";
 import ContentHeader from "../../componentes/ContentHeader";
 import Footer from "../../componentes/Footer";
 import APIInvoke from "../../utils/APIInvoke";
@@ -16,7 +16,7 @@ const VerPedido = () => {
   }, []);
 
   const cargarPedido = async () => {
-    const response = await APIInvoke.invokeGET(`/Pedido?email=${email}`);
+    const response = await APIInvoke.invokeGET(`/Pedido`);
     setPedido(response);
   };
 
@@ -69,14 +69,17 @@ const VerPedido = () => {
   return (
     <div className="wrapper">
       <Navbar></Navbar>
-      <Sideabar2></Sideabar2>
-      <div class="content-wrapper">
-        <ContentHeader
-          titulo={"Listado de Pedido"}
-          breadCrumb1={"Inicio"}
-          breadCrumb2={"Pedido"}
-          ruta2={"/Home2"}
-        />
+      
+        <SidebarContainer></SidebarContainer>
+        <div className="content-wrapper">
+            <ContentHeader
+                titulo={"Dashboard"}
+                breadCrumb1={"Inicio"}
+                
+                breadCrumb2={"Dashboard"}
+                ruta1={"/home"}
+            />
+          
 
         <section className="content">
           <div className="card">

@@ -75,6 +75,7 @@ const VerDulce = () => {
           titulo={"Listado de Dulce"}
           breadCrumb1={"Inicio"}
           breadCrumb2={"Dulce"}
+          breadCrumb3={"Dulce"}
           ruta2={"/Home2"}
         />
 

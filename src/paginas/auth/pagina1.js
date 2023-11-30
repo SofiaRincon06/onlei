@@ -33,13 +33,15 @@ const Pagina1 = () =>{
         </div>
         <div className="container-logo">
           <i className="fa-solid fa-candy-cane" />
-          <h1 className="logo"><a href="/">Dulceria Mi dulce Onlei </a></h1>
+          <h1 className="logo"><a href="/"> Mi dulce Onlei </a></h1>
         </div>
         <div className="container-user">
           <i className="fa-solid fa-user" />
           <i className="fa-solid fa-cart-shopping" />
           <div className="content-shopping-cart">
-            <span className="text">Carrito</span>
+            <span className="text">
+              <Link to={"/ver-du"}>Carrito</Link>
+              </span>
             <span className="number">(0)</span>
           </div>
         </div>
@@ -171,6 +173,7 @@ const Pagina1 = () =>{
                 </Link>
             </span>
             <p className="price">$4.60 <span>$5.30</span></p>
+            <button>Añadir al carrito</button>
           </div>
         </div>
         {/* Producto 2 */}

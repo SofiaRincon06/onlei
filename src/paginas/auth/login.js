@@ -9,10 +9,11 @@ import React, { useState, useEffect } from "react";
 
     const [Usuario, setUsuario] = useState({
       email: "",
-      contraseña: ""
+      contraseña: "",
+      tipoUsuario:""
     });
 
-    const { email, contraseña } = Usuario;
+    const { email, contraseña, tipoUsuario } = Usuario;
 
     const onChange = (e) => {
       setUsuario({
@@ -32,7 +33,7 @@ import React, { useState, useEffect } from "react";
       const verificarExistenciaUsuario = async (email, contraseña) => {
         try {
           const response = await APIInvoke.invokeGET(
-            `/Usuario?email=${email}&contraseña=${contraseña}`
+            `/${tipoUsuario}?email=${email}&contraseña=${contraseña}`
           );
           if (response && response.length > 0) {
             return response[0];
@@ -54,7 +55,7 @@ import React, { useState, useEffect } from "react";
           mostrarExito("Bienvenid@");
           localStorage.setItem("email", email)
           const { RolUsuario } = usuarioEncontrado;
-          
+          localStorage.setItem ('Rol', RolUsuario)
           if (RolUsuario === "Rol1") {
             navigate("/home");
           } else if (RolUsuario === "Rol2") {
@@ -137,7 +138,7 @@ import React, { useState, useEffect } from "react";
 
               <div className="input-group mb-3">
                 <input
-                  type="contraseña"
+                  type="password"
                   className="form-control"
                   placeholder="contraseña"
                   id="contraseña"
@@ -157,7 +158,23 @@ import React, { useState, useEffect } from "react";
               <div className="row">
                 <div className="col-8"></div>
               </div>
-
+              <div className="input-group mb-3">
+                                        <select className="form-control"
+                                            name="tipoUsuario"
+                                            value={tipoUsuario}
+                                            onChange={onChange}
+                                        >
+                                            <option value="">Seleccione su tipo de usuario</option>
+              
+                                            <option value="Usuario">Cliente</option>
+                                            <option value="Admin">Administrador</option>
+                                        </select>
+                                        <div className="input-group-append">
+                                            <div className="input-group-text">
+                                                <span className="fa-regular fa-address-card" />
+                                            </div>
+                                        </div>
+                                    </div>
               <div className="social-auth-links text-center mb-3">
                 <button type="submit" className="btn btn-block btn-primary">
                   Ingresar
