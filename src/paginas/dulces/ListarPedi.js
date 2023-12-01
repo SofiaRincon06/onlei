@@ -90,21 +90,21 @@ const VerPedido = () => {
               <table className="table table-bordered">
                 <thead>
                   <tr>
-                    <th style={{ width: "16%" }}>Nombre</th>
-                    <th style={{ width: "16%" }}>Apellidos</th>
-                    <th style={{ width: "16%" }}>Email</th>
-                    <th style={{ width: "16%" }}>Teléfono</th>
-                    <th style={{ width: "16%" }}>Dirección</th>
-                    <th style={{ width: "16%" }}>Pago</th>
-                    <th  style={{width: "16%"}}>Referencia</th>
-                    <th  style={{width: "16%"}}>Marca</th>
-                    <th  style={{width: "16%"}}>presetancion</th>
-                    <th  style={{width: "16%"}}>Sabpr</th>
-                    <th  style={{width: "16%"}}>Tipo</th>
-                    <th  style={{width: "16%"}}>Cantidad</th>
-                    <th  style={{width: "16%"}}>Precio</th>
-                    <th  style={{width: "16%"}}>PesoNeto</th>
-                    <th  style={{width: "16%"}}>Categoria</th>
+                    <th style={{ width: "7%" }}>Nombre</th>
+                    <th style={{ width: "7%" }}>Apellidos</th>
+                    <th style={{ width: "7%" }}>Email</th>
+                    <th style={{ width: "7%" }}>Teléfono</th>
+                    <th style={{ width: "7%" }}>Dirección</th>
+                    <th style={{ width: "7%" }}>Pago</th>
+                    <th  style={{width: "7%"}}>Referencia</th>
+                    <th  style={{width: "7%"}}>Marca</th>
+                    <th  style={{width: "7%"}}>Presentación</th>
+                    <th  style={{width: "7%"}}>Sabor</th>
+                    <th  style={{width: "7%"}}>Tipo</th>
+                    <th  style={{width: "7%"}}>Cantidad</th>
+                    <th  style={{width: "7%"}}>Precio</th>
+                    <th  style={{width: "7%"}}>PesoNeto</th>
+                    <th  style={{width: "7%"}}>Categoria</th>
                    
                   </tr>
                 </thead>
@@ -114,7 +114,7 @@ const VerPedido = () => {
                   Pedido.map(
                     Pedido => 
                         <tr key={Pedido.id}>
-                          <td>{Pedido.nombre}</td>
+                            <td>{Pedido.nombre}</td>
                             <td>{Pedido.apellidos}</td>
                             <td>{Pedido.email}</td>
                             <td>{Pedido.Telefono}</td>
@@ -122,16 +122,16 @@ const VerPedido = () => {
                             <td>{Pedido.pago}</td>
                             <td>{Pedido.referencia}</td>
                             <td>{Pedido.marca}</td>
-                            <td>{Pedido.tipo}</td>
-                            <td>{Pedido.presetancion}</td>
+                            <td>{Pedido.presentacion}</td>
                             <td>{Pedido.sabor}</td>
+                            <td>{Pedido.tipo}</td>
                             <td>{Pedido.cantidad}</td>
                             <td>{Pedido.precio}</td>
                             <td>{Pedido.pesoNeto}</td>
                             <td>{Pedido.categoria}</td>
                            
                             <td>
-                                <Link to={`/editarDulce/${Pedido.id}`} className="btn btn-sm btn-primary">Actualizar</Link>;
+                                <Link to={`/co/${Pedido.id}`} className="btn btn-sm btn-primary">Actualizar</Link>;
                                 <button onClick={(e)=>eliminarPedido(e, Pedido.id)} className="btn btn-sm btn-danger">Eliminar</button>
                             </td>
                         </tr>

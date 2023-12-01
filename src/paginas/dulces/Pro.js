@@ -97,7 +97,7 @@ const ProDu = () =>{
                             <td>{Dulce.pesoNeto}</td>
                             <td>{Dulce.categoria}</td>
                             <td>
-                                <Link to={`/co${Dulce.id}`} className="btn btn-sm btn-primary">Comprar</Link>;
+                                <Link to={`/co/${Dulce.id}`} className="btn btn-sm btn-primary">Comprar</Link>;
                                
                             </td>
                         </tr>

@@ -28,6 +28,10 @@ const EditarDulce = () => {
     direccion:"",
     metodo:""
     });
+    const cargarDulce = async () => {
+      const response = await APIInvoke.invokeGET("/Dulce");
+      setDulce(response);
+    };
 useEffect(() =>{
         getDulce();
 },[]);

@@ -36,9 +36,35 @@
       "contraseña": "123456",
       "RolUsuario": "Rol2",
       "id": 5
+    },
+    {
+      "nombre": "Daniel",
+      "email": "daniel12@gmail.com",
+      "contraseña": "123456",
+      "RolUsuario": "Rol2",
+      "id": 6
     }
   ],
   "Dulce": [
+    {
+      "referencia": "Chocolatina",
+      "marca": "jumbo",
+      "presentacion": "barra",
+      "sabor": "dulce",
+      "tipo": "chocolate",
+      "cantidad": "1200",
+      "precio": "45000",
+      "pesoNeto": "12",
+      "categoria": "dsadwa",
+      "id": 1,
+      "nombre": "Sofia",
+      "email": "sofia@gmail.com",
+      "telefono": "3162977796",
+      "direccion": "calle 131 #93-35",
+      "metodo": "Tarjeta"
+    }
+  ],
+  "Pedido": [
     {
       "referencia": "Chocolatina",
       "marca": "jet",
@@ -48,60 +74,16 @@
       "cantidad": "12",
       "precio": "45000",
       "pesoNeto": "12",
-      "categoria": "",
+      "categoria": "dsadwa",
       "id": 1,
-      "nombre": "narly",
-      "email": "more@gmail.com",
-      "telefono": "31565323582",
-      "direccion": "calle 131 #93-24",
-      "metodo": "tarjeta"
-    }
-  ],
-  "Pedido": [
-    {
-      "nombre": "Flor",
-      "apellidos": "Camacho",
-      "email": "Florli@gmail.com",
-      "Telefono": "3212264201",
-      "direccion": "Calle 131#89-87",
-      "pago": "Tarjeta",
-      "id": 1
-    },
-    {
-      "nombre": "wert",
-      "apellidos": "wer",
-      "email": "more@gmail.com",
-      "Telefono": "1234",
-      "direccion": "Calle 12#76474",
-      "pago": "Tarjeta",
-      "id": 2
-    },
-    {
-      "nombre": "wefrgh",
-      "apellidos": "wsdfh",
-      "email": "dfgerfdhgjh@",
-      "Telefono": "12345",
-      "direccion": "123456",
-      "pago": "Tarjeta",
-      "id": 3
-    },
-    {
-      "nombre": "qwert",
-      "apellidos": "sedgfh",
-      "email": "more@gmail.com",
-      "Telefono": "541",
-      "direccion": "asdfg",
-      "pago": "Tarjeta",
-      "id": 4
-    },
-    {
-      "nombre": "dsfcvg",
-      "apellidos": "sdfg",
-      "email": "more@gmail.com",
-      "Telefono": "2343345",
-      "direccion": "Calle 12#76474",
-      "pago": "Tarjeta",
-      "id": 5
+      "nombre": "Sofia",
+      "email": "mochu12@gmail.com",
+      "telefono": "3162977796",
+      "direccion": "calle 131 #93-35",
+      "metodo": "Tarjeta",
+      "apellidos": "sdf",
+      "Telefono": "3545252122",
+      "pago": "fgdsrfvd"
     }
   ],
   "RolUsuario": [

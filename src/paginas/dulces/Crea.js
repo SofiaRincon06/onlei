@@ -1,152 +1,70 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
-import APIInvoke from '../../utils/APIInvoke';
-import swal from 'sweetalert';
 
-
+import { useNavigate, useParams } from "react-router-dom";
+import APIInvoke from "../../utils/APIInvoke";
+import { Link } from "react-router-dom";
+import swal from "sweetalert";
+import axios from "axios";
+import show_alerta from "sweetalert"
 
 const CrearPedido = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const url = `http://localhost:4000/Dulce/${ id }`
+  const url2 = `http://localhost:4000/Pedido/${ id }`
 
-  const [Pedido, setPedido] = useState({
-    nombre: '',
-    apellidos: '',
-    email: '',
-    Telefono: '',
-    direccion: '',
-    pago:''
-
+  const [Pedido, setPedido]= useState({
+      nombre: "",
+      apellidos: "",
+      email: "",
+      Telefono: "",
+      direccion: "",
+      pago: "",
+      referencia: "",
+      marca: "",
+      presentacion: "",
+      sabor: "",
+      tipo: "",
+      cantidad: "",
+      precio: "",
+      pesoNeto: "",
+      categoria: "",
   });
+useEffect(() =>{
+        getPedido();
+},[]);
 
-  //extraemos la informacion al elemento Pedido
-  const { nombre, apellidos, email, Telefono, direccion, pago } = Pedido;
-
-
-  const onChange = (e) => {
-    setPedido({
-      ...Pedido,
-      [e.target.name]: e.target.value
-    })
-
-  }
-  useEffect(() => {
-    document.getElementById("nombre").focus();
-  }, [])
-
-  const CrearPedido = async () => {
-    const verificarExistenciaPedido = async (nombre) => {
-      try {
-          const response = await APIInvoke.invokeGET(
-              `/Pedido?nombre=${nombre}`
-          );
-          if (response && response.length > 0) {
-              return true; // El Pedido ya existe
-          } else {
-              return false; // El Pedido no existe
-          }
-
-      } catch (error) {
-          console.error(error);
-          return false; // Maneja el error si la solicitud falla 
-      }
-  };
-   
-     if (email.length < 6) {
-      const msg = "La email debe ser  minimo de 6 caracteres";
-      swal({
-        title: 'Error',
-        text: msg,
-        icon: 'error',
-        buttons: {
-          confirm: {
-            text: 'Ok',
-            value: true,
-            visible: true,
-            className: 'btn btn-danger',
-            closeModal: true
-          }
-        }
-      });
-    } else {
-      const PedidoExiste = await verificarExistenciaPedido(nombre);
-      const data = {
-        nombre: Pedido.nombre,
-        apellidos: Pedido.apellidos,
-        email: Pedido.email,
-        Telefono: Pedido.Telefono,
-        direccion: Pedido.direccion,
-        pago:Pedido.pago,
-        precio:Pedido.precio,
-        pesoNeto:Pedido.pesoNeto
-    
-      }
-      const response = await APIInvoke.invokePOST(`/Pedido`, data);
-      const mensaje = response.msg;
-
-      if (PedidoExiste) {
-        const msg = "El Pedido ya existe.";
-        swal({
-          title: 'Error',
-          text: msg,
-          icon: 'error',
-          buttons: {
-            confirm: {
-              text: 'Ok',
-              value: true,
-              visible: true,
-              className: 'btn btn-danger',
-              closeModal: true
-            }
-          }
-        });
-      } else {
-        const msg = "El Pedido se creo correctamente.";
-        swal({
-          title: 'Correcto',
-          text: msg,
-          icon: 'success',
-          buttons: {
-            confirm: {
-              text: 'Ok',
-              value: true,
-              visible: true,
-              className: 'btn btn-primary',
-              closeModal: true
-            }
-          }
-        });
-          setPedido({
-            nombre: '',
-            apellidos: '',
-            email: '',
-            Telefono: '',
-            direccion: '',
-            pago:'',
-            referencia:"",
-            marca:"",
-            presentacion:"",
-            sabor:"",
-            tipo:"",
-            cantidad:"",
-            precio:"",
-            pesoNeto:"",
-            categoria:"",
-
-    
-          })
-      }
+const getPedido = async () =>{
+    try{
+        const response = await axios.get(url);
+        setPedido(response.data);
+    }catch (error){
+        console.error("Error al tener detalles del dulce", error);
+        show_alerta("Error", "Hubo al tener detalles del dulce")
     }
-  }
+};
+const hanleInpuChange =(e) =>{
+    const {name, value} = e.target;
+    setPedido({
+        ...Pedido,
+        [name]: value,
+    });
+};
 
-  const onSubmit = (e) => {
+const hanleSubmit = async (e) =>{
     e.preventDefault();
-    CrearPedido();
-    
-  }
-
-
+    try{
+        const response = await axios.put (url2, Pedido);
+        show_alerta("Exito", "Detalles del dulce actualizados correctamente");
+        navigate("/ver-pe");
+    }catch (error){
+        console.error("Error al actualizar el dulce", error);
+        show_alerta("Error", "Hubo al tener actualizar del dulce")
+    }
+};
   return (
 
-    <div className="hold-transition logi-page" style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    <div className="hold-transition logi-page" style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <div className="login-box">
         <div className="login-logo">
           <Link to={"#"}><b>Crea Tu</b>Pedido</Link>
@@ -156,16 +74,170 @@ const CrearPedido = () => {
           <div className="card-body login-card-body">
             <p className="login-box-msg">Ingresa los datos del Cliente</p>
 
-            <form onSubmit={onSubmit}>
-    
+            <form onSubmit={hanleSubmit}>
+
+              <div className="input-group mb-3">
+                <input type="text"
+                  className="form-control"
+                  placeholder="Referencia"
+                  id="referencia"
+                  name="referencia"
+                  value={Pedido.referencia}
+                  onChange={hanleInpuChange}
+                  required
+                />
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span class="fa-solid fa-barcode" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="input-group mb-3">
+                <input type="text"
+                  className="form-control"
+                  placeholder="Marca"
+                  id="marca"
+                  name="marca"
+                  value={Pedido.marca}
+                  onChange={hanleInpuChange}          
+                  required
+                />
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fa-solid fa-star" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="input-group mb-3">
+                <input type="text"
+                  className="form-control"
+                  placeholder="Presentacion"
+                  id="presentacion"
+                  name="presentacion"
+                  value={Pedido.presentacion}
+                  onChange={hanleInpuChange}          
+                  required
+                />
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fa-solid fa-cube" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="input-group mb-3">
+                <input type="text"
+                  className="form-control"
+                  placeholder="Sabor"
+                  id="sabor"
+                  name="sabor"
+                  value={Pedido.sabor}
+                  onChange={hanleInpuChange}
+                  required
+                />
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fa-solid fa-cookie" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="input-group mb-3">
+                <input type="text"
+                  className="form-control"
+                  placeholder="Tipo"
+                  id="tipo"
+                  name="tipo"
+                  value={Pedido.tipo}
+                  onChange={hanleInpuChange}
+                  required
+                />
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fa-solid fa-check" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="input-group mb-3">
+                <input type="number"
+                  className="form-control"
+                  placeholder="Cantidad"
+                  id="cantidad"
+                  name="cantidad"
+                  value={Pedido.cantidad}
+                  onChange={hanleInpuChange}
+                  required
+                />
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fa-solid fa-plus" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="input-group mb-3">
+                <input type="number"
+                  className="form-control"
+                  placeholder="Precio"
+                  id="precio"
+                  name="precio"
+                  value={Pedido.precio}
+                  onChange={hanleInpuChange}
+                  required
+                />
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fa-solid fa-hand-holding-dollar" />
+                  </div>
+                </div>
+              </div>
+              <div className="input-group mb-3">
+                <input type="number"
+                  className="form-control"
+                  placeholder="Peso Neto"
+                  id="pesoNeto"
+                  name="pesoNeto"
+                  value={Pedido.pesoNeto}
+                  onChange={hanleInpuChange}
+                  required
+                />
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fa-solid fa-scale-balanced" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="input-group mb-3">
+                <input type="text"
+                  className="form-control"
+                  placeholder="Categoria"
+                  id="categoria"
+                  name="categoria"
+                  value={Pedido.categoria}
+                  onChange={hanleInpuChange}
+                  required
+                />
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fa-regular fa-address-card" />
+                  </div>
+                </div>
+              </div>
+
+
+
               <div className="input-group mb-3">
                 <input type="text"
                   className="form-control"
                   placeholder="Nombres"
                   id="nombre"
                   name="nombre"
-                  value={nombre}
-                  onChange={onChange}
+                  value={Pedido.nombre}
+                  onChange={hanleInpuChange}
                   required
                 />
                 <div className="input-group-append">
@@ -181,15 +253,15 @@ const CrearPedido = () => {
                   placeholder="Apellidos"
                   id="apellidos"
                   name="apellidos"
-                  value={apellidos}
-                  onChange={onChange}
+                  value={Pedido.apellidos}
+                  onChange={hanleInpuChange}
                   required
                 />
                 <div className="input-group-append">
-                <div className="input-group-text">
+                  <div className="input-group-text">
                     <span className="fa-solid fa-user" />
                   </div>
-                  
+
                 </div>
               </div>
               <div className="input-group mb-3">
@@ -198,16 +270,16 @@ const CrearPedido = () => {
                   placeholder="Email"
                   id="email"
                   name="email"
-                  value={email}
-                  onChange={onChange}
+                  value={Pedido.email}
+                  onChange={hanleInpuChange}
                   required
                 />
                 <div className="input-group-append">
 
-                <div className="input-group-text">
+                  <div className="input-group-text">
                     <span className="fas fa-envelope" />
                   </div>
-                
+
                 </div>
               </div>
 
@@ -217,13 +289,13 @@ const CrearPedido = () => {
                   placeholder="Teléfono"
                   id="Telefono"
                   name="Telefono"
-                  value={Telefono}
-                  onChange={onChange}
+                  value={Pedido.Telefono}
+                  onChange={hanleInpuChange}
                   required
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
-                    <span  class="fa-solid fa-phone" />
+                    <span class="fa-solid fa-phone" />
                   </div>
                 </div>
 
@@ -234,13 +306,13 @@ const CrearPedido = () => {
                   placeholder="Dirección"
                   id="direccion"
                   name="direccion"
-                  value={direccion}
-                  onChange={onChange}
+                  value={Pedido.direccion}
+                  onChange={hanleInpuChange}
                   required
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
-                    <span  class="fa-solid fa-house" />
+                    <span class="fa-solid fa-credit-Home" />
                   </div>
                 </div>
               </div>
@@ -251,18 +323,18 @@ const CrearPedido = () => {
                   placeholder="Medio de Pago"
                   id="pago"
                   name="pago"
-                  value={pago}
-                  onChange={onChange}
+                  value={Pedido.pago}
+                  onChange={hanleInpuChange}
                   required
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
-                    <span  class="fa-solid fa-credit-card"/>
+                    <span class="fa-solid fa-credit-card" />
                   </div>
                 </div>
               </div>
 
-          
+
 
               <div className="social-auth-links text-center mb-3">
 

@@ -34,7 +34,7 @@ const Home = () =>{
     <div className="icon">
       <i className="fa fa-edit" />
     </div>
-    <Link to={"/ver-pe/:id"} className="small-box-footer">Ver los Pedidos <i classname="fas fa-arrow-circle-right" /></Link>
+    <Link to={"/ver-pe"} className="small-box-footer">Ver los Pedidos <i classname="fas fa-arrow-circle-right" /></Link>
   </div>
 </div>
 </div>
