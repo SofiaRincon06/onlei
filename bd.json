@@ -15,6 +15,20 @@
       "contraseña": "1234567",
       "RolUsuario": "Rol2",
       "id": 2
+    },
+    {
+      "nombre": "mario",
+      "email": "more@gmail.com",
+      "contraseña": "123456",
+      "RolUsuario": "Rol2",
+      "id": 3
+    },
+    {
+      "nombre": "Nati",
+      "email": "naticacais@gmail.com",
+      "contraseña": "123456",
+      "RolUsuario": "Rol2",
+      "id": 4
     }
   ],
   "Dulce": [
@@ -28,7 +42,12 @@
       "precio": "45000",
       "pesoNeto": "12",
       "categoria": "",
-      "id": 1
+      "id": 1,
+      "nombre": "sofia ",
+      "email": "sofia345@gmail.com",
+      "telefono": "31565323582",
+      "direccion": "calle 131 #93-24",
+      "metodo": "tarjeta"
     }
   ],
   "Pedido": [
@@ -40,6 +59,15 @@
       "direccion": "Calle 131#89-87",
       "pago": "Tarjeta",
       "id": 1
+    },
+    {
+      "nombre": "mario",
+      "apellidos": "morelo",
+      "email": "more@gmail.com",
+      "Telefono": "315847523",
+      "direccion": "calle 131 #93-24",
+      "pago": "efectivo",
+      "id": 2
     }
   ],
   "RolUsuario": [

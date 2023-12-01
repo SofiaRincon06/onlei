@@ -36,7 +36,7 @@ function App() {
         <Route path='/choco'exact element={<Chocos />}/>
         <Route path='/are'exact element={<Are />}/>
         <Route path='/tip' exact element={<Tipi/>}/>
-        <Route path='/crea-ped' exact element={<CrearPedido/>}/>
+        <Route path='/crea-ped/:id' exact element={<CrearPedido/>}/>
         <Route path='/ver-du' exact element={<ListarDulce/>}/>
         <Route path='/ver-pe' exact element={<ListarPedi/>}/>
         <Route path='/verPe-Ad' exact element={<ListPeA/>}/>

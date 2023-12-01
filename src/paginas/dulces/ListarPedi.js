@@ -81,7 +81,11 @@ const VerPedido = () => {
         <section className="content">
           <div className="card">
             <div className="card-header">
-              <h3 className="card-title">Ver Pedido</h3>
+             <button >
+              <Link to={'/crea-ped/:id'}>
+              Hacer pedido
+              </Link>
+              </button>
               <div className="card-tools">
                 <button
                   type="button"
