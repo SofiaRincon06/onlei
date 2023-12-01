@@ -29,6 +29,13 @@
       "contraseña": "123456",
       "RolUsuario": "Rol2",
       "id": 4
+    },
+    {
+      "nombre": "Santiago",
+      "email": "santiago34@gmal.com",
+      "contraseña": "123456",
+      "RolUsuario": "Rol2",
+      "id": 5
     }
   ],
   "Dulce": [
@@ -43,8 +50,8 @@
       "pesoNeto": "12",
       "categoria": "",
       "id": 1,
-      "nombre": "sofia ",
-      "email": "sofia345@gmail.com",
+      "nombre": "narly",
+      "email": "more@gmail.com",
       "telefono": "31565323582",
       "direccion": "calle 131 #93-24",
       "metodo": "tarjeta"
@@ -61,13 +68,40 @@
       "id": 1
     },
     {
-      "nombre": "mario",
-      "apellidos": "morelo",
+      "nombre": "wert",
+      "apellidos": "wer",
       "email": "more@gmail.com",
-      "Telefono": "315847523",
-      "direccion": "calle 131 #93-24",
-      "pago": "efectivo",
+      "Telefono": "1234",
+      "direccion": "Calle 12#76474",
+      "pago": "Tarjeta",
       "id": 2
+    },
+    {
+      "nombre": "wefrgh",
+      "apellidos": "wsdfh",
+      "email": "dfgerfdhgjh@",
+      "Telefono": "12345",
+      "direccion": "123456",
+      "pago": "Tarjeta",
+      "id": 3
+    },
+    {
+      "nombre": "qwert",
+      "apellidos": "sedgfh",
+      "email": "more@gmail.com",
+      "Telefono": "541",
+      "direccion": "asdfg",
+      "pago": "Tarjeta",
+      "id": 4
+    },
+    {
+      "nombre": "dsfcvg",
+      "apellidos": "sdfg",
+      "email": "more@gmail.com",
+      "Telefono": "2343345",
+      "direccion": "Calle 12#76474",
+      "pago": "Tarjeta",
+      "id": 5
     }
   ],
   "RolUsuario": [

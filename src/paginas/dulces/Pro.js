@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import APIInvoke from "../../utils/APIInvoke";
 import swal from "sweetalert"
 
-const Productosdul = () =>{
+const ProDu = () =>{
   const [Dulce, setDulce] = useState([]);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const Productosdul = () =>{
       });
       cargarDulce();
     } else {
-      const msg = "El ticket no fue eliminado correctamente";
+      const msg = "El dulce no fue eliminado correctamente";
       swal({
         title: "Error",
         text: msg,
@@ -63,51 +63,6 @@ const Productosdul = () =>{
     return (
         <div>
 
-
-
-
-<header>
-    <div className="container-hero">
-      <div className="container hero">
-        <div className="customer-support">
-          <i className="fa-solid fa-headset" />
-          <div className="content-customer-support">
-            <span className="text">Soporte al cliente</span>
-            <span className="number">316-298-77-96</span>
-          </div>
-        </div>
-        <div className="container-logo">
-          <i className="fa-solid fa-candy-cane" />
-          <h1 className="logo"><a href="/">Nuestros productos </a></h1>
-        </div>
-        <div className="container-user">
-          <i className="fa-solid fa-user" />
-          <i className="fa-solid fa-cart-shopping" />
-          <div className="content-shopping-cart">
-            <span className="text">Carrito</span>
-            <span className="number">(0)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="container-navbar">
-      <nav className="navbar container">
-        <i className="fa-solid fa-bars" />
-        <ul className="menu">
-        <Link to={"/"} >
-                 Volver a Inicio
-                </Link>
-          
-        </ul>
-        <form className="search-form">
-          <input type="search" placeholder="Buscar..." />
-          <button className="btn-search">
-            <i className="fa-solid fa-magnifying-glass" />
-          </button>
-        </form>
-      </nav>
-    </div>
-  </header>
 
 
 
@@ -142,7 +97,7 @@ const Productosdul = () =>{
                             <td>{Dulce.pesoNeto}</td>
                             <td>{Dulce.categoria}</td>
                             <td>
-                                <Link to={`/crea-ped/${Dulce.id}`} className="btn btn-sm btn-primary">Comprar</Link>;
+                                <Link to={`/co${Dulce.id}`} className="btn btn-sm btn-primary">Comprar</Link>;
                                
                             </td>
                         </tr>
@@ -158,4 +113,4 @@ const Productosdul = () =>{
     )
 }
 
-export default Productosdul;
+export default ProDu;

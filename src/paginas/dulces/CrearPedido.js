@@ -54,7 +54,7 @@ const hanleSubmit = async (e) =>{
     try{
         const response = await axios.put (url, Dulce);
         show_alerta("Exito", "Compra exitosa");
-        navigate("/");
+        navigate("/ver-pe/:id");
     }catch (error){
         console.error("Error al actualizar el dulce", error);
         show_alerta("Error", "Hubo al tener actualizar del dulce")

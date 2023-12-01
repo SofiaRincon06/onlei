@@ -17,8 +17,8 @@ import CrearPedido from './paginas/dulces/CrearPedido';
 import ListarDulce from './paginas/dulces/ListarDulce';
 import ListarPedi from './paginas/dulces/ListarPedi';
 import ListPeA from './paginas/dulces/ListPeA';
-import Arch from './paginas/auth/Arch';
-import Carrito from './paginas/auth/Carrito'
+import ProDu from './paginas/dulces/Pro';
+import Crea from './paginas/dulces/Crea';
 
 function App() {
   return (
@@ -38,10 +38,12 @@ function App() {
         <Route path='/tip' exact element={<Tipi/>}/>
         <Route path='/crea-ped/:id' exact element={<CrearPedido/>}/>
         <Route path='/ver-du' exact element={<ListarDulce/>}/>
-        <Route path='/ver-pe' exact element={<ListarPedi/>}/>
+        <Route path='/ver-pe/:id' exact element={<ListarPedi/>}/>
         <Route path='/verPe-Ad' exact element={<ListPeA/>}/>
-        <Route path='/vo' exact element={<Arch/>}/>
-        <Route path='/ca' exact element={<Carrito/>}/>
+        <Route path='/vo' exact element={<ProDu/>}/>
+        <Route path='/co/:id' exact element={<Crea/>}/>
+     
+    
 
       </Routes>
     </Router>

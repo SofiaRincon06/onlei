@@ -7,9 +7,11 @@ import APIInvoke from "../../utils/APIInvoke";
 import swal from "sweetalert"
 import { Link } from "react-router-dom";
 
+
 const VerPedido = () => {
   const email = localStorage.getItem ('email')
   const [Pedido, setPedido] = useState([]);
+ 
 
   useEffect(() => {
     cargarPedido();
@@ -19,6 +21,9 @@ const VerPedido = () => {
     const response = await APIInvoke.invokeGET(`/Pedido?email=${email}`);
     setPedido(response);
   };
+
+  
+  
 
   const eliminarPedido = async (e,id) => {
     e.preventDefault();
@@ -80,31 +85,7 @@ const VerPedido = () => {
 
         <section className="content">
           <div className="card">
-            <div className="card-header">
-             <button >
-              <Link to={'/crea-ped/:id'}>
-              Hacer pedido
-              </Link>
-              </button>
-              <div className="card-tools">
-                <button
-                  type="button"
-                  className="btn btn-tool"
-                  data-card-widget="collapse"
-                  title="Collapse"
-                >
-                  <i className="fas fa-minus" />
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-tool"
-                  data-card-widget="remove"
-                  title="Remove"
-                >
-                  <i className="fas fa-times" />
-                </button>
-              </div>
-            </div>
+           
             <div className="card-body">
               <table className="table table-bordered">
                 <thead>
@@ -115,6 +96,15 @@ const VerPedido = () => {
                     <th style={{ width: "16%" }}>Teléfono</th>
                     <th style={{ width: "16%" }}>Dirección</th>
                     <th style={{ width: "16%" }}>Pago</th>
+                    <th  style={{width: "16%"}}>Referencia</th>
+                    <th  style={{width: "16%"}}>Marca</th>
+                    <th  style={{width: "16%"}}>presetancion</th>
+                    <th  style={{width: "16%"}}>Sabpr</th>
+                    <th  style={{width: "16%"}}>Tipo</th>
+                    <th  style={{width: "16%"}}>Cantidad</th>
+                    <th  style={{width: "16%"}}>Precio</th>
+                    <th  style={{width: "16%"}}>PesoNeto</th>
+                    <th  style={{width: "16%"}}>Categoria</th>
                    
                   </tr>
                 </thead>
@@ -130,6 +120,15 @@ const VerPedido = () => {
                             <td>{Pedido.Telefono}</td>
                             <td>{Pedido.direccion}</td>
                             <td>{Pedido.pago}</td>
+                            <td>{Pedido.referencia}</td>
+                            <td>{Pedido.marca}</td>
+                            <td>{Pedido.tipo}</td>
+                            <td>{Pedido.presetancion}</td>
+                            <td>{Pedido.sabor}</td>
+                            <td>{Pedido.cantidad}</td>
+                            <td>{Pedido.precio}</td>
+                            <td>{Pedido.pesoNeto}</td>
+                            <td>{Pedido.categoria}</td>
                            
                             <td>
                                 <Link to={`/editarDulce/${Pedido.id}`} className="btn btn-sm btn-primary">Actualizar</Link>;

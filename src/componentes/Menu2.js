@@ -17,10 +17,19 @@ const Menu = () =>{
       </Link>
     </li>
     <li className="nav-item">
-      <Link to={"/ver-pe"} className="nav-link">
+      <Link to={"/ver-pe/:id"} className="nav-link">
         <i className="nav-icon fas fa-edit" />
         <p>
           Pedidos
+        </p>
+      </Link>
+    </li>
+
+    <li className="nav-item">
+      <Link to={"/vo"} className="nav-link">
+        <i className="nav-icon fas fa-edit" />
+        <p>
+          Dulces
         </p>
       </Link>
     </li>
